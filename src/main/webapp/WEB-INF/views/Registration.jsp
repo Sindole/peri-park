@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%@ include file="Header.jsp" %>
+     <%@ include file="Footer.jsp" %>
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -13,6 +14,10 @@ background-image: url("images/regie.jpg");
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="CSS/style1.css">
 <title>Insert title here</title>
 </head>
@@ -30,7 +35,7 @@ background-image: url("images/regie.jpg");
 						
 						<div class="form-group">
 							<label for="name" class="cols-sm-2 control-label">Your Name</label>
-							<div class="cols-sm-10">
+							<div class="cols-sm-3">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
@@ -40,7 +45,7 @@ background-image: url("images/regie.jpg");
 
 						<div class="form-group">
 							<label for="email" class="cols-sm-2 control-label">Your Email</label>
-							<div class="cols-sm-10">
+							<div class="cols-sm-3">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
@@ -50,7 +55,7 @@ background-image: url("images/regie.jpg");
 
 						<div class="form-group">
 							<label for="username" class="cols-sm-2 control-label">Username</label>
-							<div class="cols-sm-10">
+							<div class="cols-sm-3">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
@@ -60,7 +65,7 @@ background-image: url("images/regie.jpg");
 
 						<div class="form-group">
 							<label for="password" class="cols-sm-2 control-label">Password</label>
-							<div class="cols-sm-10">
+							<div class="cols-sm-3">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
 									<input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
@@ -70,7 +75,7 @@ background-image: url("images/regie.jpg");
 
 						<div class="form-group">
 							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
-							<div class="cols-sm-10">
+							<div class="cols-sm-3">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
 									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
@@ -82,7 +87,8 @@ background-image: url("images/regie.jpg");
 							<button type="button" class="btn btn-primary btn-lg btn-block login-button">Register</button>
 						</div>
 						<div class="login-register">
-				            <a href="index.php">Login</a>
+						<button type="button" class="btn btn-primary btn-lg btn-block login-button">Login</button>
+				         
 				         </div>
 					</form>
 				</div>

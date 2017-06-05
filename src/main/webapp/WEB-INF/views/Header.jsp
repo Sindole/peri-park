@@ -45,14 +45,70 @@ body {
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Monitors<span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Page 1-1</a></li>
-          <li><a href="#">Page 1-2</a></li>
-          <li><a href="#">Page 1-3</a></li>
+          <li><a href="#">LED Monitors</a></li>
+          <li><a href="#">LCD Monitors</a></li>
         </ul>
       </li>
-      <li><a href="#">Page 2</a></li>
+      
+    </ul>
+    <ul class="nav navbar-nav">
+      
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">CPU's<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Assembled</a></li>
+          <li><a href="#">Company Brands</a></li>
+        </ul>
+      </li>
+     
+    </ul>
+    <ul class="nav navbar-nav">
+      
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Lap tops<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Apple</a></li>
+          <li><a href="#">Dell</a></li>
+          <li><a href="#">Hp</a></li>
+          <li><a href="#">Lenovo</a></li>
+        </ul>
+      </li>
+     
+    </ul>
+    <ul class="nav navbar-nav">
+      
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Accessories<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Keyboards</a></li>
+          <li><a href="#">Mouse</a></li>
+          <li><a href="#">Speakers</a></li>
+          <li><a href="#">Head sets</a></li>
+          <li><a href="#">Web Cams</a></li>
+        </ul>
+      </li>
+     
+    </ul>
+    <ul class="nav navbar-nav">
+      
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Softwares<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Application Softwares</a></li>
+          <li><a href="#">Windows OS (Licensed)</a></li>
+        </ul>
+      </li>
+     
+    </ul>
+    <ul class="nav navbar-nav">
+      
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hardwares<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Motherboards</a></li>
+          <li><a href="#">Printers</a></li>
+          <li><a href="#">CD/DVD-ROM</a></li>
+          <li><a href="#">Processors</a></li>
+        </ul>
+      </li>
+     
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -60,9 +116,9 @@ body {
     </ul>
     <form class="navbar-form navbar-left">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
+        <input type="text" class="form-control" placeholder="Find here">
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+      <button type="submit" class="btn btn-default">Search</button>
     </form>
   </div>
 </nav>
