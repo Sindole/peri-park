@@ -1,17 +1,51 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+
     <%@ include file="Header.jsp" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function($) {
+	 
+    $('#myCarousel').carousel({
+            interval: 3000
+    });
+
+    //Handles the carousel thumbnails
+    $('[id^=carousel-selector-]').click(function () {
+    var id_selector = $(this).attr("id");
+    try {
+        var id = /-(\d+)$/.exec(id_selector)[1];
+        console.log(id_selector, id);
+        jQuery('#myCarousel').carousel(parseInt(id));
+    } catch (e) {
+        console.log('Regex failed!', e);
+    }
+});
+    // When the carousel slides, auto update the text
+    $('#myCarousel').on('slid.bs.carousel', function (e) {
+             var id = $('.item.active').data('slide-number');
+            $('#carousel-text').html($('#slide-content-'+id).html());
+    });
+});
+
+</script>
 <style>
-body {
-    background-image: url("bgscroll-gray.jpg");
-    background-color: #cccccc;
+.hide-bullets {
+    list-style:none;
+    margin-left: -40px;
+    margin-top:20px;
 }
+
+.thumbnail {
+    padding: 0;
+}
+
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+    width: 100%;
+} 
 </style>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+
+<title>Peripherals Park</title>
+
 </head>
 <body>
 
@@ -27,19 +61,19 @@ body {
                 
       
                     <td class="col-sm-3">
-                        <a class="thumbnail" id="carousel-selector-0"> <img src="images/antivirus-avg.jpg">
+                        <a class="thumbnail" id="carousel-selector-0"> <img src="images/headset-mcolor.jpg">
                         </a></td>
                    
                    <td class="col-sm-3">
-                        <a class="thumbnail" id="carousel-selector-1"><img src="images/antivirus-kp.jpg"></a>
+                        <a class="thumbnail" id="carousel-selector-1"><img src="images/keyboard-white.png"></a>
                     </td>
 
                     <td class="col-sm-3">
-                        <a class="thumbnail" id="carousel-selector-2"><img src="images/aps-winrar.png"></a>
+                        <a class="thumbnail" id="carousel-selector-2"><img src="images/mouse-ms.jpg"></a>
                     </td>
 
                   <td class="col-sm-3">
-                        <a class="thumbnail" id="carousel-selector-3"><img src="images/os-windows10.jpg" height=300; width=200;></a>
+                        <a class="thumbnail" id="carousel-selector-3"><img src="images/printer-bg.jpg" height=300; width=200;></a>
                     </td>
 </tr>
 <tr>
@@ -169,6 +203,4 @@ body {
 
     </div>
 </div>
-
-</body>
-</html>
+<%@ include file="Footer.jsp" %>
