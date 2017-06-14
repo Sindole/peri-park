@@ -11,7 +11,7 @@ public class HomeController {
 	@RequestMapping("/")
 	public String showHome()
 	{
-		return "Home";
+		return "Hello";
 	}
 	
 	@RequestMapping("/Registration")
@@ -52,7 +52,7 @@ public class HomeController {
 	@RequestMapping("/Home")
 	public String showHome1()
 	{
-		return "Home";
+		return "Hello";
 	}
 	
 	@RequestMapping("/Check")
@@ -61,6 +61,8 @@ public class HomeController {
 		if(str1.equals(str2))
 		{
 			ModelAndView mv=new ModelAndView("Paymentoption");
+			mv.addObject("loggedInUser","User");
+			
 			return mv;
 		}
 		else
@@ -71,7 +73,20 @@ public class HomeController {
 		
 	}
 
+	@RequestMapping("/Checking")
+	public ModelAndView CheckingData(@RequestParam("password")String str1,@RequestParam("password_confirmation")String str2)
+	{
+		if(str1.equals(str2))
+		{
+			ModelAndView mv=new ModelAndView("Login");
+			return mv;
+		}
+		else
+		{
+			ModelAndView mv=new ModelAndView("Hello");
+			return mv;
+		}
 	
-	
+}
 }
 

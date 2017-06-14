@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -111,15 +113,28 @@ body {
       </li>
      
     </ul>
+    
     <ul class="nav navbar-nav navbar-right">
+    <c:choose>
+    <c:when test="${empty loggedInUser}">
       <li><a href="Registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li></c:when>
+      
+      <c:when test="${!empty loggedInUser}">
+      
+      <li><a href="Registration"><li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">MyAccount<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">My Profile</a></li></a></li></ul></li>
+      <li><a href="Hello"><span class="glyphicon glyphicon-log-out"></span>Sign out</a></li>
+      </c:when>
+      </c:choose>
     </ul>
-    <form class="navbar-form navbar-left">
+    <form class="navbar-form">
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Find here">
       </div>
       <button type="submit" class="btn btn-default">Search</button>
+      
     </form>
   </div>
 </nav>

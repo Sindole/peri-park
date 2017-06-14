@@ -1,7 +1,7 @@
 <%@ include file="Header.jsp" %>
 <style>
 body {
-    background: #f1f1f1;
+    background: white;
 }
 
 .product-item {
@@ -111,8 +111,8 @@ body {
                   <a href="#" class="btn">View</a>
                 </div>
               </div>
-              <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-              <div class="pi-price">$29.00</div>
+              <h3><a href="shop-item.html">Apple-LED Monitor</a></h3>
+              <div class="pi-price">7500/-</div>
               <a href="javascript:;" class="btn add2cart">Add to cart</a>
               <div class="sticker sticker-new"></div>
             </div>
@@ -126,8 +126,8 @@ body {
                   <a href="#" class="btn">View</a>
                 </div>
               </div>
-              <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-              <div class="pi-price">$29.00</div>
+              <h3><a href="shop-item.html">LG LED-Monitor</a></h3>
+              <div class="pi-price">6700/-</div>
               <a href="javascript:;" class="btn add2cart">Add to cart</a>
             </div>
         </div>
@@ -140,8 +140,8 @@ body {
                   <a href="#" class="btn">View</a>
                 </div>
               </div>
-              <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-              <div class="pi-price">$29.00</div>
+              <h3><a href="shop-item.html">Samsung LED-Monitor</a></h3>
+              <div class="pi-price">7200/-</div>
               <a href="javascript:;" class="btn add2cart">Add to cart</a>
             </div>
         </div>

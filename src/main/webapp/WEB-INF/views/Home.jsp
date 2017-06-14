@@ -2,7 +2,7 @@
     <%@ include file="Header.jsp" %>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
+<script type="text/javascript">
 jQuery(document).ready(function($) {
 	 
     $('#myCarousel').carousel({
@@ -26,8 +26,8 @@ jQuery(document).ready(function($) {
             $('#carousel-text').html($('#slide-content-'+id).html());
     });
 });
-
 </script>
+
 <style>
 .hide-bullets {
     list-style:none;
