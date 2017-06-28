@@ -14,6 +14,6 @@ public boolean saveOrUpdate(Category cat);
 	
 	public List<Category> list();
 	
-	public Category getById(int id);
+	public Category getById(String id);
 	
 }

@@ -11,9 +11,8 @@ import org.hibernate.validator.constraints.NotBlank;
 @Entity
 @Table
 public class Category {
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-private int catid;
+@Id
+private String catid;
 
 @NotBlank(message="Category name can't be blank")	
 private String catname;
@@ -21,11 +20,11 @@ private String catname;
 @NotBlank(message="Category description can't be blank")
 private String catdesc;
 
-public int getCatid() {
+public String getCatid() {
 	return catid;
 }
 
-public void setCatid(int catid) {
+public void setCatid(String catid) {
 	this.catid = catid;
 }
 

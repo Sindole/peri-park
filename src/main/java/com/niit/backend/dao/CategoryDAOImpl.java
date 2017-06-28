@@ -2,6 +2,8 @@ package com.niit.backend.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -30,9 +32,10 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	public boolean saveOrUpdate(Category cat) {
 		try {
-			Session s=sessionFactory.getCurrentSession();
+			Session s=sessionFactory.openSession();
 			Transaction t=s.beginTransaction();
 			s.saveOrUpdate(cat);
+			System.out.println("before commit");
 			t.commit();
 			return true;
 			}
@@ -62,16 +65,31 @@ public class CategoryDAOImpl implements CategoryDAO {
 	}
 
 	public Category get(String name) {
-		// TODO Auto-generated method stub
+		Session s=sessionFactory.openSession();
+		Transaction t=s.beginTransaction();
+		
+		String hql="from Category where catname='"+name +"'";
+		Query query = s.createQuery(hql);
+		List<Category>listCategory=(List<Category>)query.list();
+		
+		if(listCategory!=null && !listCategory.isEmpty())
+		{
+			return listCategory.get(0);
+		}
+		t.commit();
 		return null;
 	}
 
 	public List<Category> list() {
-		// TODO Auto-generated method stub
-		return null;
+		Session s=sessionFactory.getCurrentSession();
+		Transaction t=s.beginTransaction();
+		@SuppressWarnings({ "deprecation", "unchecked" })
+		List<Category>listCategory=(List<Category>)s.createCriteria(Category.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+	t.commit();
+	return listCategory;
 	}
 
-	public Category getById(int id) {
+	public Category getById(String id) {
 		try
 		{
 			return sessionFactory.openSession().createQuery("from Category where catid=:id", Category.class).setParameter("catid", id).getSingleResult();

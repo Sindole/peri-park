@@ -13,8 +13,7 @@ import org.hibernate.validator.constraints.NotBlank;
 public class Supplier {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int supid;
+	private String supid;
 	
 	@NotBlank(message="Supplier Name can't be blank")
 	private String supname;
@@ -25,11 +24,11 @@ public class Supplier {
 	@NotBlank(message="Supplier address can't be blank")
 	private String supaddress;
 
-	public int getSupid() {
+	public String getSupid() {
 		return supid;
 	}
 
-	public void setSupid(int supid) {
+	public void setSupid(String supid) {
 		this.supid = supid;
 	}
 

@@ -9,8 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.Min;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table
@@ -22,20 +25,27 @@ public class Product {
 	@NotBlank(message="Product Name can't be blank")
 	private String prodname;
 	
+	@ManyToOne
+	@JoinColumn(name="catid", insertable=false, updatable=false)
+	private Category category;
+	private String catid;
 	
-	private int catid;
+	@ManyToOne
+	@JoinColumn(name="supid", insertable=false, updatable=false)
+	private Supplier supplier;
+	private String supid;
 	
-	
-	private int supid;
-	
-	@NotBlank(message="Quantity Can't be blank")
+	@Min(1)
 	private int quantity;
 	
-	@NotBlank(message="Price can't be blank")
+	@Min(1)
 	private int price;
 	
 	@NotBlank(message="Product description can't be blank")
 	private String proddesc;
+	
+	@Transient
+	private MultipartFile img;
 
 	public int getProdid() {
 		return prodid;
@@ -53,21 +63,38 @@ public class Product {
 		this.prodname = prodname;
 	}
 
-	public int getCatid() {
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public String getCatid() {
 		return catid;
 	}
 
-	public void setCatid(int catid) {
+	public void setCatid(String catid) {
 		this.catid = catid;
 	}
 
-	public int getSupid() {
+	public String getSupid() {
 		return supid;
 	}
 
-	public void setSupid(int supid) {
+	public void setSupid(String supid) {
 		this.supid = supid;
 	}
+
+	public Supplier getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
+
 
 	public int getQuantity() {
 		return quantity;
@@ -91,6 +118,14 @@ public class Product {
 
 	public void setProddesc(String proddesc) {
 		this.proddesc = proddesc;
+	}
+
+	public MultipartFile getImg() {
+		return img;
+	}
+
+	public void setImg(MultipartFile img) {
+		this.img = img;
 	}
 
 
