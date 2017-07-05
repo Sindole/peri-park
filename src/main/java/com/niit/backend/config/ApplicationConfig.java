@@ -14,6 +14,8 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.backend.dao.CartDAO;
+import com.niit.backend.dao.CartDAOImpl;
 import com.niit.backend.dao.CategoryDAO;
 import com.niit.backend.dao.CategoryDAOImpl;
 import com.niit.backend.dao.ProductDAO;
@@ -22,6 +24,7 @@ import com.niit.backend.dao.SupplierDAO;
 import com.niit.backend.dao.SupplierDAOImpl;
 import com.niit.backend.dao.UserDAO;
 import com.niit.backend.dao.UserDAOImpl;
+import com.niit.backend.model.Cart;
 import com.niit.backend.model.Category;
 import com.niit.backend.model.Product;
 import com.niit.backend.model.Supplier;
@@ -42,7 +45,6 @@ public class ApplicationConfig {
 		datasource.setPassword("1234");
 		return datasource;
 	}
-	
 	private Properties getHibernateProperties()
 	{
 		Properties prop=new Properties();
@@ -63,6 +65,7 @@ public class ApplicationConfig {
 		sessBuild.addAnnotatedClass(Category.class);
 		sessBuild.addAnnotatedClass(Product.class);
 		sessBuild.addAnnotatedClass(Supplier.class);
+		sessBuild.addAnnotatedClass(Cart.class);
 		return sessBuild.buildSessionFactory();
 		
 	}
@@ -122,6 +125,18 @@ public class ApplicationConfig {
 	public Supplier getSupplier(SessionFactory sess)
 	{
 		return new Supplier();
+	}
+	
+	@Bean(name="cartDAO")
+	public CartDAO getCartDAOImpl(SessionFactory sess)
+	{
+		return new CartDAOImpl();
+	}
+	
+	@Bean(name="cart")
+	public Cart getCart(SessionFactory sess)
+	{
+		return new Cart();
 	}
 	
 }

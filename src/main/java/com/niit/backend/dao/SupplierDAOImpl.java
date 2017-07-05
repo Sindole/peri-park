@@ -47,8 +47,21 @@ public class SupplierDAOImpl implements SupplierDAO {
 	}
 
 	public boolean delete(Supplier sup) {
-		// TODO Auto-generated method stub
-		return false;
+		try
+		{
+			Session s=sessionFactory.openSession();
+			Transaction t=s.beginTransaction();
+			s.delete(sup);
+			t.commit();
+			s.close();
+			//sessionFactory.getCurrentSession().delete(cat);
+			return true;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	public Supplier get(String name) {
@@ -76,9 +89,33 @@ public class SupplierDAOImpl implements SupplierDAO {
 	return listSupplier;
 	}
 
-	public Supplier getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Supplier getById(String id) {
+		try
+		{
+			System.out.println("getById-Checking before return");
+			String hql="from Supplier where supid='"+id+"'";
+			Session s=sessionFactory.openSession();
+			Transaction t=s.beginTransaction();
+		Query query=s.createQuery(hql);
+		List<Supplier>list=query.list();
+		if(list==null)
+		{
+			return null;
+		}
+		else
+		{
+			return list.get(0);
+		}
+		
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return null;
+		}
+		
+		
 	}
+
 
 }

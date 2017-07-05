@@ -40,6 +40,7 @@ private int zip;
 private String phone;
 private String role;
 private String enabled;
+
 public int getUserid() {
 	return userid;
 }

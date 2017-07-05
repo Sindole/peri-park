@@ -13,6 +13,6 @@ public interface SupplierDAO {
 	public boolean delete(Supplier sup);
 	public Supplier get(String name);
 	public List<Supplier> list();
-	public Supplier getById(int id);
+	public Supplier getById(String id);
 
 }

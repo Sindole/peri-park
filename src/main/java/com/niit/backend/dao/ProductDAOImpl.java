@@ -2,12 +2,14 @@ package com.niit.backend.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.niit.backend.model.Category;
 import com.niit.backend.model.Product;
 
 @Repository(value="productDAO")
@@ -43,8 +45,20 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 
 	public boolean delete(Product prod) {
-		// TODO Auto-generated method stub
-		return false;
+		try
+		{
+			Session s=sessionFactory.getCurrentSession();
+			Transaction t=s.beginTransaction();
+			s.delete(prod);
+			t.commit();
+			sessionFactory.getCurrentSession().delete(prod);
+			return true;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	public Product get(String name) {
@@ -53,13 +67,25 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 
 	public List<Product> list() {
-		// TODO Auto-generated method stub
-		return null;
+		Session s=sessionFactory.getCurrentSession();
+		Transaction t=s.beginTransaction();
+		@SuppressWarnings({ "deprecation", "unchecked" })
+		List<Product>listProduct=(List<Product>)s.createCriteria(Product.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+	
+		t.commit();
+	return listProduct;
 	}
 
-	public Product getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Product getById(String id) {
+		try
+		{
+			return sessionFactory.openSession().createQuery("from Product where prodid=:id", Product.class).setParameter("prodid", id).getSingleResult();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }
