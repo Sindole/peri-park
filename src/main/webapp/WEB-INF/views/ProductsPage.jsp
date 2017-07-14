@@ -115,59 +115,40 @@ body {
 </style>
 </head>
 <body>
-	<div class="container">
-		<div class="row">
+<form action="Cart" modelAttribute="product" method="post">
+<c:forEach items="${productList}" var="product">
+<table>
+<tr>
+<td>
+	<div class="container container-horizontal">
+		<div class="column">
 			<div class="col-md-4">
 				<div class="product-item">
 					<div class="pi-img-wrapper">
-						<img src="images/led-apple.jpg" class="img-responsive"
+						<img src="Pics/${product.prodname}.jpg" class="img-responsive"
 							alt="Berry Lace Dress">
 						<div>
-							<a href="#" class="btn">Zoom</a> <a href="SingleProduct"
-								class="btn">View</a>
+							<a href="#" class="btn">Zoom</a> 
+							<a href="${product.prodid}/SingleProduct" class="btn">View</a>
 						</div>
 					</div>
 					<h3>
-						<a href="shop-item.html">Apple-LED Monitor</a>
+						<a href="SingleProduct">${product.prodname}</a>
 					</h3>
-					<div class="pi-price">7500/-</div>
-					<a href="Cart" class="btn add2cart">Add to cart</a>
+					<div class="pi-price">${product.price}/-</div>
+					<a href="${product.prodid}/Cart" class="btn add2cart">Add to cart</a>
 					<div class="sticker sticker-new"></div>
 				</div>
 			</div>
-			<div class="col-md-4">
-				<div class="product-item">
-					<div class="pi-img-wrapper">
-						<img src="images/led-lg.jpg" class="img-responsive"
-							alt="Berry Lace Dress">
-						<div>
-							<a href="#" class="btn">Zoom</a> <a href="#" class="btn">View</a>
-						</div>
-					</div>
-					<h3>
-						<a href="shop-item.html">LG LED-Monitor</a>
-					</h3>
-					<div class="pi-price">6700/-</div>
-					<a href="Cart" class="btn add2cart">Add to cart</a>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="product-item">
-					<div class="pi-img-wrapper">
-						<img src="images/led-samsung.jpg" class="img-responsive"
-							alt="Berry Lace Dress">
-						<div>
-							<a href="#" class="btn">Zoom</a> <a href="#" class="btn">View</a>
-						</div>
-					</div>
-					<h3>
-						<a href="shop-item.html">Samsung LED-Monitor</a>
-					</h3>
-					<div class="pi-price">7200/-</div>
-					<a href="Cart" class="btn add2cart">Add to cart</a>
-				</div>
-			</div>
+			
 		</div>
 	</div>
+	</td>
+	</tr>
+	</table>
+	</c:forEach>
 	<br>
 	<br>
+	
+	</form>
+	</body>

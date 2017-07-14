@@ -269,22 +269,18 @@ scale
 
 						<div class="preview-pic tab-content">
 							<div class="tab-pane active" id="pic-1">
-								<img src="images/led-apple.jpg" />
+								<img src="/peri-park/Pics/${product.prodname}.jpg"/>
 							</div>
 						</div>
 					</div>
 					<div class="details col-md-3">
-						<h3 class="product-title">LED Monitor with HD Resolution</h3>
-						<p class="product-description">Apple iMac 21.5 Inch Display
-							with 1.6GHz Dual-Core MK142HN-A The idea behind iMac has never
-							wavered: to craft the ultimate desktop experience. The best
-							display, paired with high-performance processors, graphics and
-							storage ' all within an incredibly thin, seamless enclosure.</p>
+						<h3>${product.prodname}</h3>
+						<p class="product-description">${product.proddesc}</p>
 						<h4 class="price">
-							current price: <span style="color: green;">28700/-</span>
+							current price: <span style="color: green;">${product.price}</span>
 						</h4>
 						<h4 class="quantity">
-							Available Quantity: <span style="color: red;">12 units</span>
+							Available Quantity: <span style="color: red;">${product.quantity}</span>
 						</h4>
 					</div>
 					<!-- <div class="action"> -->
