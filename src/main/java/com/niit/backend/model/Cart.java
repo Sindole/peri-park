@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -17,7 +19,9 @@ public class Cart {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int cartid;
 	
-	@NotNull(message="ProductId code can't be blank")
+	@ManyToOne
+	@JoinColumn(name="prodid",insertable=false,updatable=false)
+	private Product cartproduct;
 	private int prodid;
 	
 	@NotNull(message="Quantity code can't be blank")
@@ -29,8 +33,11 @@ public class Cart {
 	@NotNull(message="TotalCost code can't be blank")
 	private int tcost;
 	
-	private String username;
-	
+	@ManyToOne
+	@JoinColumn(name="userid",insertable=false,updatable=false)
+	private User cartuser;
+	private Integer userid;
+
 	@NotBlank(message="ProductName can't be blank")
 	private String prodname;
 
@@ -40,6 +47,14 @@ public class Cart {
 
 	public void setCartid(int cartid) {
 		this.cartid = cartid;
+	}
+
+	public Product getCartproduct() {
+		return cartproduct;
+	}
+
+	public void setCartproduct(Product cartproduct) {
+		this.cartproduct = cartproduct;
 	}
 
 	public int getProdid() {
@@ -74,12 +89,20 @@ public class Cart {
 		this.tcost = tcost;
 	}
 
-	public String getUsername() {
-		return username;
+	public User getCartuser() {
+		return cartuser;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setCartuser(User cartuser) {
+		this.cartuser = cartuser;
+	}
+
+	public Integer getUserid() {
+		return userid;
+	}
+
+	public void setUserid(Integer userid) {
+		this.userid = userid;
 	}
 
 	public String getProdname() {
@@ -89,4 +112,6 @@ public class Cart {
 	public void setProdname(String prodname) {
 		this.prodname = prodname;
 	}
+
+	
 }
