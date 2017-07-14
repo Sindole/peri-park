@@ -9,6 +9,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.backend.model.Cart;
 import com.niit.backend.model.Category;
@@ -27,7 +28,14 @@ public class CartDAOImpl implements CartDAO {
 			super();
 			// TODO Auto-generated constructor stub
 		}
+		
+		@Autowired
+		ProductDAO productDAO;
+		
+		@Autowired
+		UserDAO userDAO;
 
+		@Transactional
 	public void AddToCart(Cart cart) {
 		try{
 		Session s=sessionFactory.openSession();
@@ -37,8 +45,6 @@ public class CartDAOImpl implements CartDAO {
 		t.commit();
 		System.out.println("Cart Item is Added");
 		}
-		
-		
 		catch(Exception e)
 		{
 			e.printStackTrace();
@@ -46,6 +52,7 @@ public class CartDAOImpl implements CartDAO {
 		
 	}
 
+		@Transactional
 	public void DeleteCartItem(Cart cart) {
 		try {
 			Session s = sessionFactory.openSession();
@@ -61,6 +68,7 @@ public class CartDAOImpl implements CartDAO {
 		
 	}
 	
+		@Transactional
 	public List<Cart> list() {
 		Session s = sessionFactory.getCurrentSession();
 		Transaction t = s.beginTransaction();
@@ -71,6 +79,7 @@ public class CartDAOImpl implements CartDAO {
 		return listCart;
 	}
 
+		@Transactional
 	public Cart getById(Integer id) {
 		try {
 			System.out.println("getById-Checking before return");
