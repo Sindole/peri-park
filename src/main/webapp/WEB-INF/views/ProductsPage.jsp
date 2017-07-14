@@ -115,7 +115,7 @@ body {
 </style>
 </head>
 <body>
-<form action="Cart" modelAttribute="product" method="post">
+<%-- <form action="Cart${product.prodid}" modelAttribute="product" method="post"> --%>
 <c:forEach items="${productList}" var="product">
 <table>
 <tr>
@@ -136,7 +136,8 @@ body {
 						<a href="SingleProduct">${product.prodname}</a>
 					</h3>
 					<div class="pi-price">${product.price}/-</div>
-					<a href="${product.prodid}/Cart" class="btn add2cart">Add to cart</a>
+					
+					<a href="Cart" class="btn add2cart">Add to cart</a>
 					<div class="sticker sticker-new"></div>
 				</div>
 			</div>
