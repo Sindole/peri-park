@@ -48,7 +48,7 @@
     <a class="navbar-brand" href="AdminHome"><img src="images/homelogo.jpg" class="img-circle" alt="Webcam" width="75" height="50"></a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="Home">User-Home</a></li>
+      <li class="active"><a href="AdminHome">User-Home</a></li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories<span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="AddCategory">Add a New Category</a></li>
